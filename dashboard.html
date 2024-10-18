@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="dashboard.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lynce App</title>
+  <script type="module" src="/main.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <header class="header">
+    <h1 id="breadcrumb">Início</h1>
+  </header>
+
+  <div class="sidebar">
+    <button type="button" id="logo" name="pagina1"></button>
+    <button type="button" onclick="redirectToDash()" id="inicio" title="início"></button>
+    <button type="button" onclick="redirectToAlunos()" id="alunos" title="alunos"></button><br>
+    <button type="button" onclick="redirectToFuncionarios()" id="funcionarios" title="funcionários"></button><br>
+    <button type="button" onclick="redirectToAvaliar()" id="avaliar" title="avaliar"></button><br>
+  </div>
+
+  <div class="s1">
+    <h1 id="renda">Renda</h1>
+    <h2 id="rendanum">R$--,<span>--</span></h2>
+    <h5 id="rendadia">R$---,--</h5>
+    <h5 id="dia">Renda hoje:</h5>
+  </div>
+  <div class="s2">
+    <h1 id="despesa">Despesas</h1>
+    <h2 id="despesanum">R$--,<span>--</span></h2>
+    <h5 id="despesadia">R$---,--</h5>
+    <h5 id="ddia">Despesas hoje:</h5>
+  </div>
+  <div class="s3"><canvas id="grafico3"></canvas></div>
+  <div class="s4"><canvas id="grafico4"></canvas></div>
+
+
+  <script>
+    function redirectToAlunos() {
+      window.location.href = '../alunos/alunos.html';
+    }
+
+    function redirectToFuncionarios() {
+      window.location.href = '../funcionarios/funcionarios.html';
+    }
+
+    function redirectToDash() {
+      window.location.href = 'dashboard.html';
+    }
+
+    function redirectToAvaliar() {
+      window.location.href = 'avaliar.html';
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const ctx3 = document.getElementById('grafico3');
+
+    new Chart(ctx3, {
+      type: 'bar',
+      data: {
+        labels: ['Jan.', 'Fev.', 'Mar.', 'Abr.', 'Maio', 'Jun.', 'Jul.', 'Ago.', 'Set.', 'Out.', 'Nov.', 'Dez.'],
+        datasets: [{
+          label: 'Presença de Alunos',
+          data: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          borderWidth: 2,
+          borderColor: '#fd7702',
+          backgroundColor: '#fd7702a6'
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+  <script>
+    const ctx4 = document.getElementById('grafico4');
+
+    new Chart(ctx4, {
+      type: 'doughnut',
+      data: {
+        labels: ['Percentual de Renovação', 'Percentual de Iniciação'],
+        datasets: [{
+          label: 'Adição de Pessoas',
+          data: [57, 43],
+          borderWidth: 2,
+          borderColor: '#00000000',
+          backgroundColor: [
+            '#fd7702a6',
+            '#007fffa6',
+          ]
+        }]
+      },
+
+    });
+  </script>
+</body>
+
+</html>

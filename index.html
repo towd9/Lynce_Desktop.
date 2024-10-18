@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lynce App</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap"
+    rel="stylesheet">
+  <script type="module" src="/main.js" defer></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="top">
+      <img class="logo" src="imagens/fullogo.png" alt="logo">
+    </div>
+    <div class="legenda">Bem vindo(a) de volta!</div>
+    <div id="formContainer">
+      <form id="loginForm" method="get">
+        <div class="campos">
+          <label for="login">Usuário
+            <input type="text" id="login" name="login">
+          </label>
+          <div class="emergencia">
+            <label for="senha" class="id2">Senha
+              <input type="password" id="senha" name="senha">
+            </label>
+            <button type="submit" class="botao">Entrar</button>
+
+            <h3 id="ajuda">Deseja alterar sua senha? <a onclick="openChangePassword()"><span id="Clique">Clique
+                  aqui.</span></a></h3>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <script>
+    function openChangePassword() {
+      window.location.href = 'index2.html';
+    }
+  </script>
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function (event) {
+      event.preventDefault(); // Previne o envio do formulário
+
+      // Obtém os valores do login e da senha
+      var login = document.getElementById('login').value;
+      var senha = document.getElementById('senha').value;
+
+      // Verifica se o login e a senha são 1234 e 1234
+      if (login === '1234' && senha === '1234') {
+        // Redireciona para outra página HTML
+        window.location.href = 'dashboard/dashboard.html';
+      } else {
+        alert('Login ou senha incorretos!' < br > 'Reinicie o aplicativo para tentar novamente (ctrl + w para fechar).')
+      }
+
+      function openChangePassword() {
+        window.location.href = "index2.html"
+      }
+    });
+  </script>
+</body>
+
+</html>

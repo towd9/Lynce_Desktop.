@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="funcionarios.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lynce App - Funcionários</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="header">
+        <h1 id="breadcrumb"> Início <span id="seta">></span> Funcionários </h1>
+    </header>
+
+    <div class="sidebar">
+        <button type="button" id="logo" name="pagina1"></button>
+        <button type="button" onclick="redirectToDash()" id="inicio" title="início"></button>
+        <button type="button" onclick="redirectToAlunos()" id="alunos" title="alunos"></button><br>
+        <button type="button" onclick="redirectToFuncionarios()" id="funcionarios" title="funcionários"></button><br>
+        <button type="button" onclick="redirectToAvaliar()" id="avaliar" title="avaliar"></button><br>
+    </div>
+
+    <header class="header">
+        <h1 id="breadcrumb">Início <span id="seta">></span> Funcionários </h1>
+    </header>
+
+    <h1 class="titulo">Funcionários</h1>
+    <button type="button" onclick="redirectToAvaliar()" class="cadastro">Adicionar</button>
+
+    <div class="tcontainer">
+        <br>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>Cargo</th>
+                    <th>Expediente</th>
+                    <th>CPF</th>
+                    <th>Telefone</th>
+                    <th>Ações</th> <!-- "Ações" column -->
+                </tr>
+            </thead>
+            <tbody id="funcionarios-table-body">
+                <!-- Data will be inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="/main.js" type="module" defer></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let funcionarios = JSON.parse(localStorage.getItem('funcionarios')) || [];
+            const tableBody = document.getElementById('funcionarios-table-body');
+
+            funcionarios.forEach((funcionario, index) => {
+                const row = document.createElement('tr');
+
+                row.innerHTML = `
+                        <td>${index + 1}</td>
+                        <td>${funcionario.nome}</td>
+                        <td>${funcionario.idade}</td>
+                        <td>${funcionario.cargo}</td>
+                        <td>${funcionario.expediente}</td>
+                        <td>${funcionario.cpf}</td>
+                        <td>${funcionario.telefone}</td>
+                        <td>
+                            <button class="edit-button" onclick="editFuncionario(${index})">Edit</button>
+                            <button class="delete-button" onclick="deleteFuncionario(${index})">Delete</button>
+                        </td>
+                    `;
+
+                tableBody.appendChild(row);
+            });
+        });
+
+        // Function to delete a funcionario
+        function deleteFuncionario(index) {
+            let funcionarios = JSON.parse(localStorage.getItem('funcionarios')) || [];
+            funcionarios.splice(index, 1);
+            localStorage.setItem('funcionarios', JSON.stringify(funcionarios));
+            window.location.reload(); // Refresh the page to update the table
+        }
+
+        function redirectToAlunos() {
+            window.location.href = '../alunos/alunos.html';
+        }
+
+        function redirectToFuncionarios() {
+            window.location.href = 'funcionarios.html';
+        }
+
+        function redirectToDash() {
+            window.location.href = '../dashboard/dashboard.html';
+        }
+
+        function redirectToAvaliar() {
+            window.location.href = 'avaliarfuncionario.html';
+        }
+
+        // Função para editar os dados do funcionario
+function editFuncionario(index) {
+    // Salvar o índice do funcionario a ser editado no localStorage
+    localStorage.setItem('alunoEditIndex', index);
+    // Redirecionar para o formulário de avaliação
+    window.location.href = 'avaliarfuncionario.html';
+}
+
+if (editIndex) {
+        // Update existing aluno
+        funcionarios[editIndex] = formData;
+        document.getElementById('editIndex').value = ''; // Reset editIndex after updating
+    } else {
+        // Add new aluno
+        funcionarios.push(formData);
+    }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,538 @@
+body {
+    margin: none;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+}
+
+.header {
+    background-color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.425) 0px 0px 12px;
+    height: 3.9vw;
+    width: 100vw;
+    position: absolute;
+    margin-top: -52.7%;
+    z-index: -12;
+}
+
+#breadcrumb {
+    margin-left: 6vw;
+    margin-right: calc();
+    color: #fd7702;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 300;
+    font-size: 17pt;
+}
+
+#seta{
+    color: #0056b3;
+    font-size: 12pt;
+}
+
+.sidebar {
+    padding-right: 30px;
+    outline: black white 1px;
+    background-color: #fd7702;
+    height: 100vh;
+    width: 3vw;
+    margin-left: -9px;
+    margin-top: -8px;
+    flex-wrap: wrap;
+}
+
+#logo {
+    background-image: url(imagens/lynce.png);
+    background-color: transparent;
+    background-size: cover;
+    background-position: center;
+    margin-top: 10px;
+    margin-left: 25%;
+    width: 4vw;
+    height: 4vw;
+    border: none;
+}
+
+#inicio {
+    width: 3vw;
+    height: 3vw;
+    border: none;
+    background-image: url(imagens/inicio.png);
+    background-size: cover;
+    background-position: center;
+    background-color: transparent;
+    border-radius: 10px;
+    margin-top: 18px;
+    margin-left: 14px;
+    color: #fd7702;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 500;
+    text-align: left;
+    font-size: 21pt;
+}
+
+#inicio:hover {
+    box-shadow: white 2px 0px 0px, white 0px 2px 0px, white -2px 0px 0px, white 0px -2px 0px;
+    color: #ffffff;
+    background-image: url(imagens/inicio.png);
+    background-size: cover;
+    background-position: center;
+    transition: 0.1s;
+}
+
+#inicio:active {
+    background-image: url(imagens/inicioh.png);
+    color: #fd7702;
+}
+
+#alunos {
+    width: 3vw;
+    height: 3vw;
+    border: none;
+    background-color: rgba(241, 241, 241, 0);
+    background-image: url(imagens/alunoh.png);
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    margin-top: 18px;
+    margin-left: 14px;
+    color: #ffffff;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 500;
+    text-align: left;
+    font-size: 21pt;
+    transition: 0.5s;
+}
+
+#alunos:hover {
+    box-shadow: white 2px 0px 0px, white 0px 2px 0px, white -2px 0px 0px, white 0px -2px 0px;
+    color: #ffffff;
+    background-size: cover;
+    background-position: center;
+    transition: 0.1s;
+}
+
+#alunos:active {
+    background-image: url(imagens/alunoh.png);
+    color: #fd7702;
+}
+
+#funcionarios {
+    width: 3vw;
+    height: 3vw;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    background-image: url(imagens/funcionarios.png);
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    margin-top: 18px;
+    margin-left: 14px;
+    color: #ffffff;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 500;
+    text-align: left;
+    font-size: 21pt;
+    transition: 0.5s;
+}
+
+#funcionarios:hover {
+    box-shadow: white 2px 0px 0px, white 0px 2px 0px, white -2px 0px 0px, white 0px -2px 0px;
+    transition: 0.1s;
+}
+
+#funcionarios:active {
+    background-image: url(imagens/funcionariosh.png);
+    background-color: white;
+    color: #fd7702;
+}
+
+#voltar{
+    background-color: transparent;
+    background-image: url(imagens/voltar.png);
+    background-size: cover;
+    width: 3vw;
+    height: 3vw;
+    line-height: 10%;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    margin-top: 30%;
+    margin-left: 14px;
+    position: absolute;
+    padding: 10px 10px 10px 10px;
+    transition: 0.5s;
+}
+
+#voltar:hover {
+    box-shadow: white 2px 0px 0px, white 0px 2px 0px, white -2px 0px 0px, white 0px -2px 0px;
+    background-image: url(imagens/voltar.png);
+    transition: 0.1s;
+}
+
+#voltar:active {
+    background-image: url(imagens/voltarh.png);
+    background-color: white;
+    color: #fd7702;
+}
+
+#avaliar{
+    width: 3vw;
+    height: 3vw;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    background-image: url(imagens/avaliar.png);
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    margin-top: 18px;
+    margin-left: 14px;
+    color: #ffffff;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 500;
+    text-align: left;
+    font-size: 21pt;
+    transition: 0.5s;
+}
+
+#avaliar:hover {
+    box-shadow: white 2px 0px 0px, white 0px 2px 0px, white -2px 0px 0px, white 0px -2px 0px;
+    background-image: url(imagens/avaliar.png);
+    transition: 0.1s;
+}
+
+#avaliar:active {
+    background-image: url(imagens/avaliarh.png);
+    background-color: white;
+    color: #fd7702;
+}
+
+.titulo{
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 700;
+    text-align: left;
+    font-size: 29pt;
+    color: #fd7702;
+    margin-top: -40vw;
+    margin-left: 10.5vw;
+}
+
+.cadastro{
+    cursor: pointer;
+    position: absolute;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 700;
+    text-align: left;
+    font-size: 17pt;
+    padding: 14px;
+    color: #ffffff;
+    margin-top: -43vw;
+    margin-left: 79vw;
+    border: none;
+    border-radius: 10px;
+    background-color: #002347;
+}
+
+/* Existing Table Container and Table Styles */
+.tcontainer {
+    position: absolute;
+    overflow: scroll;
+    box-shadow: 0px 6px 7px -4px rgba(0, 0, 0, 0.459);
+    margin-top: 12vh;
+    background-color: rgb(241, 241, 241);
+    width: 75vw;
+    height: 70vh;
+    margin-left: 14vw;
+}
+
+.tcontainer table {
+    margin-top: -1.9%;
+    width: 73.6vw;
+    border-collapse: collapse;
+}
+
+.tcontainer th, .tcontainer td {
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 8px;
+    font-family: "Poppins", sans-serif;
+}
+
+.tcontainer th {
+    background-color: #fd7702;
+    color: #ffffff;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 600;
+}
+
+.tcontainer tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.tcontainer tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Add the new CSS here */
+
+/* Centering the buttons within the table cell */
+.action-buttons-cell {
+    display: flex;
+    justify-content: center; /* Centers the buttons horizontally */
+    align-items: center; /* Centers the buttons vertically */
+    padding: 8px;
+}
+
+/* Common Styles for More Info and Edit Buttons */
+.more-info-button, .edit-button {
+    padding: 5px 10px;
+    background-color: #4CAF50; /* Green color for both buttons */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    margin-right: 5px; /* Add some space between the buttons */
+}
+
+.more-info-button:last-child, .edit-button:last-child {
+    margin-right: 0; /* Remove margin from the last button */
+}
+
+.more-info-button:hover, .edit-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Delete Button Styles */
+.tcontainer .delete-button {
+    background-color: #b40404; /* Red for delete */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.tcontainer .delete-button:hover {
+    background-color: #c82333;
+}
+
+
+
+table {
+    margin-top: -1.9%;
+    width: 73.6vw;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    font-family: "poppins", sans-serif;
+}
+
+th {
+    text-align: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #fd7702;
+    color: #ffffff;
+    font-family: "Bricolage Grotesque", sans-serif;
+}
+
+tr{
+    text-align: center;
+}
+
+.status {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 3px;
+}
+
+.status.ativo {
+    background-color: rgb(0, 170, 0);
+}
+
+.status.inativo {
+    background-color: gray;
+}
+
+.status.bloqueado {
+    background-color: red;
+}
+
+.edit-button {
+    background-color: #002347;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.edit-button:hover {
+    background-color: #002347c7;
+}
+
+button.delete-button {
+    background-color: #b40404;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+button.delete-button:hover {
+    background-color: #c82333;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.tcontainer .edit-button, .tcontainer .delete-button {
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+.tcontainer .edit-button {
+    background-color: #002347; /* Blue for edit */
+    color: white;
+    margin-right: 5px;
+}
+
+.tcontainer .edit-button:hover {
+    background-color: #012b55;
+}
+
+.tcontainer .delete-button {
+    background-color: #b40404; /* Red for delete */
+    color: white;
+}
+
+.tcontainer .delete-button:hover {
+    background-color: #c82333;
+    transition: 500ms;
+}
+
+/* Common Styles for More Info and Edit Buttons */
+.more-info-button, .edit-button {
+    padding: 5px 10px;
+    background-color: #4CAF50; /* Green color for both buttons */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    margin-right: 5px; /* Add some space between the buttons */
+}
+
+.more-info-button:hover, .edit-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Delete Button Styles */
+.tcontainer .delete-button {
+    background-color: #b40404; /* Red for delete */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.tcontainer .delete-button:hover {
+    background-color: #c82333;
+}
+
+/* Estilos para o quadrado de status */
+.status-box {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    cursor: pointer;
+    border: 1px solid #000;
+    border-radius: 3px;
+    position: relative; /* Para posicionar o tooltip */
+}
+
+/* Estilos para o tooltip */
+.tooltip {
+    position: absolute;
+    bottom: 100%; /* Posicionar o tooltip acima do quadrado */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 3px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 12px;
+    z-index: 10; /* Certificar que o tooltip fica acima do quadrado */
+}
+
+/* Exibir o tooltip ao passar o mouse sobre o quadrado */
+.status-box:hover .tooltip {
+    opacity: 1;
+}
+
+/* Tooltip para cada cor */
+.status-box[data-status="red"] .tooltip::after {
+    content: "Inativo";
+    background-color: red;
+}
+
+.status-box[data-status="blue"] .tooltip::after {
+    content: "Inadimplente";
+    background-color: blue;
+}
+
+.status-box[data-status="green"] .tooltip::after {
+    content: "Ativo";
+    background-color: green;
+}
+ #limpar{
+    opacity: 30%;
+ }
+
+ @media screen and (max-width: 768px) {
+    #content {
+      position: relative;
+      width: calc(100% - 60px);
+      transition: all 0.3s ease;
+    }
+  
+    nav .nav-link,
+    nav .divider {
+      display: none;
+    }
+  }

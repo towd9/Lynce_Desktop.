@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="alunos.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lynce App</title>
+    <script type="module" src="/renderer.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <h1 id="breadcrumb">Início <span id="seta">></span> Alunos</h1>
+    </header>
+
+    <div class="sidebar">
+        <button type="button" id="logo" name="pagina1"></button>
+        <button type="button" onclick="redirectToDash()" id="inicio" title="início"></button>
+        <button type="button" onclick="redirectToAlunos()" id="alunos" title="alunos"></button><br>
+        <button type="button" onclick="redirectToFuncionarios()" id="funcionarios" title="funcionários"></button><br>
+        <button type="button" onclick="redirectToAvaliar()" id="avaliar" title="avaliar"></button><br>
+    </div>
+
+    <h1 class="titulo">Alunos</h1>
+    <button type="button" onclick="redirectToAvaliar()" class="cadastro">Adicionar</button>
+
+    <div class="tcontainer">
+           <button type="button" onclick="limpar()" id="limpar"></button> <br>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>Peso (kg)</th>
+                    <th>Alt. (cm)</th>
+                    <th>IMC</th>
+                    <th>Objetivo</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="aluno-table-body">
+                
+            </tbody>
+        </table>
+    </div>
+
+<script src="renderer.js"></script>
+    <script>
+        function redirectToAlunos() {
+            window.location.href = 'alunos.html';
+        }
+
+        function redirectToFuncionarios() {
+            window.location.href = '../funcionariosp/funcionarios.html';
+        }
+
+        function redirectToDash() {
+            window.location.href = '../dashboard/dashboard.html';
+        }
+
+        function redirectToAvaliar() {
+            window.location.href = 'avaliar.html';
+        }
+
+        function leave() {
+            document.getElementById('exitModal').style.display = 'block';
+        }
+
+        function fecharModalSair() {
+            document.getElementById('exitModal').style.display = 'none';
+        }
+
+        function limpar() {
+            localStorage.clear()
+        }
+    </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    let alunos = JSON.parse(localStorage.getItem('alunos')) || [];
+    const tableBody = document.getElementById('aluno-table-body');
+
+    alunos.forEach((aluno, index) => {
+        const row = document.createElement('tr');
+
+        // verificar memória locaç
+        const statusColor = localStorage.getItem(`status-${index}`) || 'gray';
+
+        row.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${aluno.nome}</td>
+            <td>${aluno.idade}</td>
+            <td>${aluno.peso}</td>
+            <td>${aluno.altura} cm</td>
+            <td>${aluno.gorduraCorporal || 'N/A'}</td>
+            <td>${aluno.objetivo}</td>
+            <td>
+                <div class="status-box" onclick="toggleStatus(this, ${index})" 
+                    style="background-color: ${statusColor};"
+                    data-status="${statusColor}">
+                    <div class="tooltip"></div>
+                </div>
+            </td>
+            <td>
+                <button class="edit-button" onclick="editAluno(${index})">Editar</button>
+                <button class="delete-button" onclick="deleteAluno(${index})">Apagar</button>
+            </td>
+        `;
+
+        tableBody.appendChild(row);
+    });
+});
+
+function toggleStatus(element, index) {
+    const colors = ['red', 'blue', 'green'];
+    const currentColor = element.style.backgroundColor;
+    const currentIndex = colors.indexOf(currentColor);
+    const nextIndex = (currentIndex + 1) % colors.length;
+    const newColor = colors[nextIndex];
+
+    element.style.backgroundColor = newColor;
+    element.setAttribute('data-status', newColor);
+    
+    localStorage.setItem(`status-${index}`, newColor);
+}
+
+function deleteAluno(index) {
+    let alunos = JSON.parse(localStorage.getItem('alunos')) || [];
+    alunos.splice(index, 1);
+    localStorage.setItem('alunos', JSON.stringify(alunos));
+
+    // Remover também o status associado
+    localStorage.removeItem(`status-${index}`);
+
+    window.location.reload();
+}
+
+// Função para editar os dados do aluno
+function editAluno(index) {
+    // Salvar o índice do aluno a ser editado no localStorage
+    localStorage.setItem('alunoEditIndex', index);
+    // Redirecionar para o formulário de avaliação
+    window.location.href = 'avaliar.html';
+}
+
+if (editIndex) {
+        // Update existing aluno
+        alunos[editIndex] = formData;
+        document.getElementById('editIndex').value = ''; // Reset editIndex after updating
+    } else {
+        // Add new aluno
+        alunos.push(formData);
+    }
+</script>
+
+</body>
+
+</html>
